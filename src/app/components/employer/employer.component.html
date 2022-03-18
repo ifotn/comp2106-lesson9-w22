@@ -1,0 +1,22 @@
+<h1 class="card highlight-card">Job Tracker</h1>
+<section class="card-container">
+    <div *ngFor="let e of employers" class="card" (click)="onSelect(e)">
+        <h3>{{e.name}} - {{e.location}}</h3>
+    </div>
+</section>
+<section *ngIf="selectedEmployer">
+    <h2>Employer Details</h2>
+        <fieldset>
+            <label class="lbl">ID:</label>
+            <input [(ngModel)]="selectedEmployer.id" name="id" />
+        </fieldset>
+        <fieldset>
+            <label class="lbl">Name:</label>
+            <input [(ngModel)]="selectedEmployer.name" name="name" />
+        </fieldset>
+        <fieldset>
+            <label class="lbl">Location:</label>
+            <input [(ngModel)]="selectedEmployer.location" name="location" />
+        </fieldset>
+        <button class="btn" (click)="resetForm()">Hide/Reset</button>
+</section>
